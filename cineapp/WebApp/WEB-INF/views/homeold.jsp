@@ -1,14 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Bienvenidos a CineAPP</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<!-- variable al modelo con la URL relativa a resources, se coloca aqui para que este disponible al llegar a usar los recursos locales -->
+<spring:url value="/resources" var="urlPublic" />
+
+
+<link rel="stylesheet" href="${urlPublic}/bootstrap/css/bootstrap.min.css">
+
+
+<!-- CDN <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+crossorigin="anonymous">-->
+
+
+
 </head>
 <body>
+
 	
 
 <!-- 	<ol> -->
@@ -50,9 +66,20 @@
 					<td>${pelicula.duracion} MIN</td>
 					<td>${pelicula.calificacion}</td>
 					<td>${pelicula.genero}</td>
-					<td>${pelicula.fechaEstreno}</td>
-					<td>${pelicula.estatus}</td>
-					<td>${pelicula.imagen}</td>
+					<td><fmt:formatDate value="${pelicula.fechaEstreno}" pattern="dd-MM-yyyy"/></td>
+					<td>
+						<c:choose > 
+						<c:when test="${pelicula.estatus=='Activa' }"> 
+							<span class="label label-success">ACTIVA </span>
+						</c:when>
+						<c:otherwise> 
+							<span class ="label label-danger"> INACTIVA </span>
+						</c:otherwise>
+						
+						</c:choose>
+					
+					</td>
+					<td><img src="${urlPublic }/images/${pelicula.imagen}" width="100" height="100"></td>
 				</tr>
 			</c:forEach>
 

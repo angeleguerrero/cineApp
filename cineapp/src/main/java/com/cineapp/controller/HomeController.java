@@ -52,15 +52,17 @@ public class HomeController {
 			pelicula1.setCalificacion("B");
 			pelicula1.setGenero("Aventura");
 			pelicula1.setFechaEstreno(formatter.parse("02-05-2018"));
+			pelicula1.setImagen("powerrangers.png");
 			
 			
 			Pelicula pelicula2 = new Pelicula();
 			pelicula2.setId(2);
 			pelicula2.setTitulo("Matrix Recargado");
 			pelicula2.setDuracion(120);
-			pelicula2.setCalificacion("B");
+			pelicula2.setCalificacion("A");
 			pelicula2.setGenero("Ficcion");
 			pelicula2.setFechaEstreno(formatter.parse("02-05-2017"));
+			pelicula2.setImagen("matrix.png");
 			
 			Pelicula pelicula3 = new Pelicula();
 			pelicula3.setId(3);
@@ -69,6 +71,8 @@ public class HomeController {
 			pelicula3.setCalificacion("B");
 			pelicula3.setGenero("Aventura");
 			pelicula3.setFechaEstreno(formatter.parse("02-05-2019"));
+			pelicula1.setImagen("eraultron.png");
+			pelicula3.setEstatus("inactiva");
 			
 			lista.add(pelicula1);
 			lista.add(pelicula2);
