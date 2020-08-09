@@ -29,6 +29,21 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/buscar", method =RequestMethod.POST)
+	public String buscarDate(@RequestParam("fecha") String fecha, Model model) {
+		
+		List<String> listafechas = Utileria.getNextDays(9);
+		List<Pelicula>peliculas = getLista();
+		model.addAttribute("fechas", listafechas);
+		model.addAttribute("fechaBusqueda", fecha);
+		model.addAttribute("peliculas", peliculas);
+		
+		
+		
+		System.out.println("Peliculas paa la fecha" + fecha);
+		return "home";
+	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String dashBoardIndex(Model model) {
 		List<String> listafechas = Utileria.getNextDays(9);
@@ -62,7 +77,7 @@ public class HomeController {
 			pelicula1.setDuracion(120);
 			pelicula1.setCalificacion("B");
 			pelicula1.setGenero("Aventura");
-			pelicula1.setFechaEstreno(formatter.parse("02-05-2018"));
+			pelicula1.setFechaEstreno(formatter.parse("2020-08-11"));
 			pelicula1.setImagen("powerrangers.png");
 			
 			
@@ -81,7 +96,7 @@ public class HomeController {
 			pelicula3.setDuracion(120);
 			pelicula3.setCalificacion("B");
 			pelicula3.setGenero("Aventura");
-			pelicula3.setFechaEstreno(formatter.parse("02-05-2019"));
+			pelicula3.setFechaEstreno(formatter.parse("2020-08-11"));
 			pelicula3.setImagen("eraultron.png");
 			pelicula3.setEstatus("inactiva");
 			

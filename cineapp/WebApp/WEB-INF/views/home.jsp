@@ -16,7 +16,7 @@
     <title>CineSite | Bienvenido</title>
 
 <spring:url value="/resources" var="urlPublic" />
-
+<spring:url value="/" var="urlRoot"></spring:url>
  
 <link rel="stylesheet" href="${urlPublic}/bootstrap/css/bootstrap.min.css">
     <link href="${urlPublic}/bootstrap/css/theme.css" rel="stylesheet">
@@ -68,12 +68,21 @@
       <div class="row page-header">          
         <div class="col-lg-12">         
           <h2 class="text text-center"><span class="label label-success">EN CARTELERA</span></h2>          
-          <form class="form-inline" action="#" method="post">
+          <form class="form-inline" action="${urlRoot}buscar " method="post">
             <div class="form-group">
               <label for="fecha">Fecha: </label>
               <select id="fecha" name="fecha" class="form-control">
 		                <c:forEach items="${fechas}" var="fechaTemp">
+		                 <c:choose>
+		                <c:when test="${fechaBusqueda eq fechaTemp}">
+		                	<option value="{fechaTemp}" selected>${fechaTemp}</option>	
+		                
 		                <option value="${fechaTemp}">${fechaTemp} </option>
+		                </c:when>
+		                 <c:otherwise>
+		                  <option value="${fechaTemp}">${fechaTemp}</option>	
+		                 </c:otherwise>
+		                 </c:choose>
 		                 </c:forEach>         
               </select>
             </div>            
