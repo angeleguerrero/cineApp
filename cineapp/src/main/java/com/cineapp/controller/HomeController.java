@@ -115,6 +115,7 @@ public class HomeController {
 			lista.add(pelicula2);
 			lista.add(pelicula3);
 			lista.add(pelicula4);
+			
 			return lista;
 			
 		}catch (ParseException e) {
