@@ -60,6 +60,7 @@ public class HomeController {
 	public String mostrarDetalles(Model model, @RequestParam("idMovie") int idPelicula, @RequestParam("fecha") String fecha) {
 		System.out.println("BURCAR ID PELICULA: "+idPelicula);
 		System.out.println("PARA FECHA DE PELICULA: "+fecha);
+		model.addAttribute("pelicula", ServicePelicula.buscarPorId(idPelicula));
 		
 //		String tituliPelicula="Rapido y Furioso";
 //		int duracion = 136;

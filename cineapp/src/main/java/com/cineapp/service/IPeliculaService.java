@@ -10,5 +10,6 @@ public interface IPeliculaService {
 
 	
 	List<Pelicula>buscarTodas();
+	Pelicula buscarPorId(int IdPelicula);
 	
 }
