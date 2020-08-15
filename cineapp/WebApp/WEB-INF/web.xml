@@ -6,31 +6,42 @@
   
   <!-- Nombre del servlet y configuracion para que deploy se realice primero -->
 	<servlet>
+	
 		<servlet-name>springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-	<init-param>
-	<param-name>contextConfigLocation</param-name>
-<param-value>/WEB-INF/spring/dispatcher-servlet.xml</param-value>
-	</init-param>
 	
+	
+			<init-param>
+				<param-name>contextConfigLocation</param-name>
+				<param-value>/WEB-INF/spring/dispatcher-servlet.xml</param-value>
+			</init-param>
 	
 		<load-on-startup>1</load-on-startup>
+		
 	</servlet>
+	
+	
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-<context-param>
-<param-name>contextConfigLocation</param-name>
-<param-value>/WEB-INF/spring/root-context.xml</param-value>
-</context-param>
 	
+		<context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/spring/root-context.xml</param-value>
+		</context-param>
+	
+		<listener> 
+			<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		</listener>
+
+			
   
-<!--   Para desactivar session ID -->
- <session-config> 
-    <tracking-mode>COOKIE</tracking-mode> 
-</session-config> 
+		<!--   Para desactivar session ID -->
+		 <session-config> 
+		    <tracking-mode>COOKIE</tracking-mode> 
+		</session-config> 
   
   
 </web-app>

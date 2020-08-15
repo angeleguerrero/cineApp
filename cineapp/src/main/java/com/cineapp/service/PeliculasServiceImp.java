@@ -4,13 +4,17 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
-
+import org.springframework.stereotype.Service;
 import com.cineapp.model.Pelicula;
 
+@Service
 public class PeliculasServiceImp implements IPeliculaService{
+	
 	private List<Pelicula>lista=null;
+	
 	public  PeliculasServiceImp() {
 		
+		System.out.println("Creando Instancia clase Peliculas ServiceImp");
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyy");
 		
@@ -57,19 +61,12 @@ public class PeliculasServiceImp implements IPeliculaService{
 			pelicula4.setFechaEstreno(formatter.parse("02-05-2019"));
 //			pelicula4.setImagen("eraultron.png");
 			pelicula4.setEstatus("inactiva");
-			
 			lista.add(pelicula1);
 			lista.add(pelicula2);
 			lista.add(pelicula3);
 			lista.add(pelicula4);
-			
-			
-			
 		}catch (ParseException e) {
 			System.out.println("Error"+ e.getMessage());
-			
-		
-		
 		}
 	}
 	
