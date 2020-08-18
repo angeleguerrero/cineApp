@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cineapp.model.Noticia;
 import com.cineapp.service.INoticiasService;
@@ -23,15 +22,10 @@ public class NoticiasController {
 	}
 	
 	@PostMapping(value = "/save")
-	public String salvar(@RequestParam("titulo") String titulo, @RequestParam("estatus") String estatus, @RequestParam("detalle") String detalle ) {
-		System.out.println("Titulo: "+titulo + "Estado: " +estatus +"Detalle: " +detalle);
-		
-		Noticia noticias = new  Noticia();
-		noticias.setTitulo(titulo);
-		noticias.setEstatus(estatus);
-		noticias.setDetalle(detalle); 
-		
-		
+	
+	public String salvar(Noticia noticias) {
+
+		serviceNoticias.guardar(noticias);
 		//Salvar en BBDD
 		System.out.println(noticias);
 		

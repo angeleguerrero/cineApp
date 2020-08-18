@@ -13,13 +13,7 @@ public class Pelicula {
 	private Date fechaEstreno;
 	private String estatus ="Activa";
 	
-	
-	
-	
-	
-	
-	
-	
+
 
 
 	@Override
