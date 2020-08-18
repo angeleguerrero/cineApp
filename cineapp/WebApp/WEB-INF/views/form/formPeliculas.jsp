@@ -30,6 +30,29 @@
 	<h3 class="blog-title"><span class="label label-success">Datos de la Pelicula</span></h3>
       </div>
 
+<!-- PASAR NOMBRE ONJETO MODELO PELICULA -->
+<spring:hasBindErrors name="pelicula">  
+	<div  class='alert alert-danger' role='alert'>  
+		Por favor Verifique los siguientes Errores:
+		<ul> 
+			<c:forEach var="error" items="${errors.allErrors} ">  
+				<li>spring:message message="${error}"/>
+			</c:forEach>
+		</ul>
+		
+	</div>
+
+</spring:hasBindErrors>
+
+
+
+
+
+
+
+
+
+
       <form action="${urlForm}" method="post">
         <div class="row">
           <div class="col-sm-3">

@@ -1,18 +1,41 @@
 package com.cineapp.controller;
 
-import javax.xml.ws.BindingType;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cineapp.model.Pelicula;
+import com.cineapp.service.IPeliculaService;
 
 @Controller
 @RequestMapping("/peliculas")
 public class PeliculasController {
+	@Autowired
+	private IPeliculaService servicePelicula;
+	
+	@GetMapping("/index")
+	public String mostrarIndex(Model model) {
+		List<Pelicula>lista = servicePelicula.buscarTodas();
+		model.addAttribute("peliculas", lista);
+		return "form/listPeliculas";
+	}
+	
+	
 
 	@GetMapping(value = "/create")
 	public String crear() {
@@ -20,9 +43,30 @@ public class PeliculasController {
 	}
 	
 	@PostMapping("/save")
-	public String guardar(Pelicula pelicula , BindingResult result) {
+	public String guardar(Pelicula pelicula , BindingResult result,RedirectAttributes atributes ) {
+		
+		for (ObjectError error : result.getAllErrors()) {
+			System.out.println(error.getDefaultMessage());
+		}
 		System.out.println("Salvando OBJ Pelicula" + pelicula);
-		return "form/formPeliculas";
+		System.out.println("Elementos en la lista Antes de insercion" + servicePelicula.buscarTodas().size());
+		
+		servicePelicula.insertar(pelicula);
+		System.out.println("Elementos en la lista despues de la insercion" + servicePelicula.buscarTodas().size());
+		
+		atributes.addFlashAttribute("mensaje" , "Registro guardado correctamente");
+//		return "form/formPeliculas";
+		return "redirect:/peliculas/index";
+		
+	}
+	
+	
+	
+	
+	@InitBinder
+	public void initBinder (WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false) );
 	}
 	
 }
