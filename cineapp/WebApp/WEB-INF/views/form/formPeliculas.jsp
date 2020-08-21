@@ -52,8 +52,8 @@
 
 
 
-
-      <form action="${urlForm}" method="post">
+<!--  SOPORTE PARA SUBIR ARCHIVOS enctype="multipart/form-data" -->
+      <form action="${urlForm}" method="post" enctype="multipart/form-data">
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
