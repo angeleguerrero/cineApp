@@ -10,17 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.cineapp.model.Pelicula;
+
 import com.cineapp.service.IPeliculaService;
 import com.cineapp.util.Utileria;
 
 
-
-
 @Controller
 public class HomeController {
-	
 	@Autowired	
 	private IPeliculaService ServicePelicula;
+
 	
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 	
@@ -61,6 +60,7 @@ public class HomeController {
 		System.out.println("BURCAR ID PELICULA: "+idPelicula);
 		System.out.println("PARA FECHA DE PELICULA: "+fecha);
 		model.addAttribute("pelicula", ServicePelicula.buscarPorId(idPelicula));
+
 		
 //		String tituliPelicula="Rapido y Furioso";
 //		int duracion = 136;

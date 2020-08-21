@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.cineapp.model.Banner;
 
-public interface IBannerService {
+public interface IBannersService {
 	void insertar(Banner banner); 
 	List<Banner> buscarTodos();
 }

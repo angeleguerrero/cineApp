@@ -1,4 +1,8 @@
 package com.cineapp.model;
+/**
+ * Clase que representa una imagen del Banner (Carousel) de la pagina principal
+ */
+
 
 import java.util.Date;
 
