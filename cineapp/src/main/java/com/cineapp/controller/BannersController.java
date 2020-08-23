@@ -35,7 +35,7 @@ public class BannersController {
 	public String mostrarIndex(Model model) {
 		List<Banner> banners = serviceBanners.buscarTodos();
 		model.addAttribute("banners", banners);
-		return "banners/listBanners";
+		return "form/listBanners";
 	}
 	
 	/**
@@ -44,7 +44,7 @@ public class BannersController {
 	 */
 	@GetMapping("/create")
 	public String crear() {
-		return "banners/formBanner";
+		return "form/formBanner";
 	}
 	
 	/**
@@ -63,7 +63,7 @@ public class BannersController {
 		
 		if (result.hasErrors()) {
 			System.out.println("Existieron errores");
-			return "banners/formBanner";
+			return "form/formBanner";
 		}
 		
 		if (!multiPart.isEmpty()) {
