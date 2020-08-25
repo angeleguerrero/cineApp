@@ -30,13 +30,13 @@ public class BannersServiceImpl implements IBannersService {
 		
 		Banner banner3 = new Banner();
 		banner3.setId(3);
-		banner3.setTitulo("Este mes no te pierdas Rapidos y Furiosos 8");
+		banner3.setTitulo("Este mes no te pierdas Spiderman de regreso a casa");
 		banner3.setArchivo("slide3.jpg");
 		
 		Banner banner4 = new Banner();
 		banner4.setId(4);
 		banner4.setTitulo("Estreno en Agosto - Jefe en Pañales");
-		banner4.setArchivo("slide4.jpg");
+		banner4.setArchivo("slide5.jpg");
 		banner4.setEstatus("Inactivo");
 		
 		// Agregamos los objetos Banner a la lista

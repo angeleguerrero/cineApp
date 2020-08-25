@@ -50,7 +50,7 @@ public class HomeController {
 		model.addAttribute("fechas", listafechas);
 		model.addAttribute("fechaBusqueda", dateFormat.format(new Date()));
 		model.addAttribute("peliculas", peliculas);	
-		model.addAttribute("banners", serviceBanners.buscarTodos()); // Ejercicio : Solucion
+		model.addAttribute("bannershome", serviceBanners.buscarTodos()); // Ejercicio : Solucion
 		return"home";
 	}
 	

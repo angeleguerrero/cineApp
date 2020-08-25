@@ -33,15 +33,31 @@
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
+       
+          	 <c:forEach items="${bannershome}" var="banner" varStatus="loop">
+        		<c:choose>
+	       		<c:when test="${loop.index==0}">
+	       			<li data-target="#myCarousel" data-slide-to="${loop.index}" class="active"></li>
+	        		</c:when>
+	        		<c:otherwise>
+		         	<li data-target="#myCarousel" data-slide-to="${loop.index}"></li>
+		         </c:otherwise>
+	       	</c:choose>
+	       </c:forEach>
+        
+        	 <%-- Asi estaba de forma Estatica
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
           <li data-target="#myCarousel" data-slide-to="2"></li>         
           <li data-target="#myCarousel" data-slide-to="3"></li>	
+           --%>
+       
+       
         </ol>
         <!-- Image Size 1140 x 250 -->
             <div class="carousel-inner" role="listbox">
         
-        	<c:forEach items="${banners}" var="banner" varStatus="loop">
+        	<c:forEach items="${bannershome}" var="banner" varStatus="loop">
         		<c:choose>
 	        		<c:when test="${loop.index==0}">
 	        			<div class="item active">         
