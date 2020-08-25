@@ -20,7 +20,7 @@ import com.cineapp.service.IBannersService;
 import com.cineapp.util.Utileria;
 
 @Controller
-@RequestMapping("/banners/")
+@RequestMapping("/banners")
 public class BannersController {
 
 	@Autowired
@@ -33,8 +33,8 @@ public class BannersController {
 	 */
 	@GetMapping("/index")
 	public String mostrarIndex(Model model) {
-		List<Banner> banners = serviceBanners.buscarTodos();
-		model.addAttribute("banners", banners);
+		List<Banner> lbanners = serviceBanners.buscarTodos();
+		model.addAttribute("banners", lbanners);
 		return "form/listBanners";
 	}
 	

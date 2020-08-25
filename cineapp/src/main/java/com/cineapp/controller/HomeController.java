@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.cineapp.model.Pelicula;
-
+import com.cineapp.service.IBannersService;
 import com.cineapp.service.IPeliculaService;
 import com.cineapp.util.Utileria;
 
@@ -19,6 +19,9 @@ import com.cineapp.util.Utileria;
 public class HomeController {
 	@Autowired	
 	private IPeliculaService ServicePelicula;
+	
+	@Autowired
+	private IBannersService serviceBanners; // Ejercicio : Solucion
 
 	
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -35,6 +38,7 @@ public class HomeController {
 		model.addAttribute("fechas", listafechas);
 		model.addAttribute("fechaBusqueda", fecha);
 		model.addAttribute("peliculas", peliculas);
+		model.addAttribute("banners", serviceBanners.buscarTodos()); // Ejercicio : Solucion
 		System.out.println("Peliculas paa la fecha" + fecha);
 		return "home";
 	}
@@ -46,6 +50,7 @@ public class HomeController {
 		model.addAttribute("fechas", listafechas);
 		model.addAttribute("fechaBusqueda", dateFormat.format(new Date()));
 		model.addAttribute("peliculas", peliculas);	
+		model.addAttribute("banners", serviceBanners.buscarTodos()); // Ejercicio : Solucion
 		return"home";
 	}
 	
