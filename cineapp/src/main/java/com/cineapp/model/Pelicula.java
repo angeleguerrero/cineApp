@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Pelicula {
 
-	private Integer id;
+	private int id;
 	private String titulo;
 	private int duracion;
 	private String calificacion;
@@ -12,20 +12,32 @@ public class Pelicula {
 	private String imagen = "cinema.png";
 	private Date fechaEstreno;
 	private String estatus ="Activa";
+	private Detalle detalle;
+
+
 	
-
-
-
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Pelicula [id=" + id + ", titulo=" + titulo + ", duracion=" + duracion + ", calificacion=" + calificacion
 				+ ", genero=" + genero + ", imagen=" + imagen + ", fechaEstreno=" + fechaEstreno + ", estatus="
-				+ estatus + "]";
+				+ estatus + ", detalle=" + detalle + "]";
 	}
-	public Integer getId() {
+	public Detalle getDetalle() {
+		return detalle;
+	}
+	public void setDetalle(Detalle detalle) {
+		this.detalle = detalle;
+	}
+	
+
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitulo() {

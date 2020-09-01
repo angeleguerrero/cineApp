@@ -17,6 +17,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,18 +44,23 @@ public class PeliculasController {
 	
  
 	@GetMapping(value = "/create")
-	public String crear() {
+	public String crear(@ModelAttribute Pelicula pelicula) {
 		return "form/formPeliculas";
 	}
 	
 	@PostMapping("/save")
-	public String guardar(Pelicula pelicula , BindingResult result,RedirectAttributes atributes, 
+	public String guardar(@ModelAttribute Pelicula pelicula , BindingResult result,RedirectAttributes atributes, 
 			@RequestParam("archivoImagen") MultipartFile multiPart, HttpServletRequest  request ) {
 		
-				
-		for (ObjectError error : result.getAllErrors()) {
-			System.out.println(error.getDefaultMessage());
-		}
+		
+		if (result.hasErrors()) {
+			System.out.println("Exieten errores");
+			return "form/formPeliculas";
+			}
+	
+//		for (ObjectError error : result.getAllErrors()) {
+//			System.out.println(error.getDefaultMessage());
+//		}
 		
 		if (!multiPart.isEmpty()) {
 			String nombreImagen = Utileria.guardarImagen(multiPart,request);
@@ -72,13 +78,6 @@ public class PeliculasController {
 		return "redirect:/peliculas/index";
 		
 	}
-	
-	
-	
-	
-
-	
-	
 	
 	
 	@InitBinder
