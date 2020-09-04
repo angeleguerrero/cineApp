@@ -13,7 +13,6 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -44,7 +43,8 @@ public class PeliculasController {
 	
  
 	@GetMapping(value = "/create")
-	public String crear(@ModelAttribute Pelicula pelicula) {
+	public String crear(@ModelAttribute Pelicula pelicula, Model model) {
+		model.addAttribute("generos", servicePelicula.buscarGeneros());
 		return "form/formPeliculas";
 	}
 	
