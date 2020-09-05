@@ -30,6 +30,7 @@ public class NoticiasController {
 		System.out.println(noticias);
 		
 		
+//		return "form/formContacto";
 		return "form/formNoticia";
 	}
 	

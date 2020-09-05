@@ -114,6 +114,7 @@ public class PeliculasServiceImp implements IPeliculaService{
 		generos.add("Accion y Aventura");
 		generos.add("Romantica");
 		generos.add("Ciancia Ficcion");
+		generos.add("test");
 		
 		return generos ;
 	}
