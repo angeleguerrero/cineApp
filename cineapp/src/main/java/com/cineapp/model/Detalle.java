@@ -1,7 +1,20 @@
 package com.cineapp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "detalles")
 public class Detalle {
 
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	
 	private int id;
 	private String director;
 	private String actores;
@@ -20,6 +33,11 @@ public class Detalle {
 	}
 	public int getId() {
 		return id;
+	}
+	@Override
+	public String toString() {
+		return "Detalle [id=" + id + ", director=" + director + ", actores=" + actores + ", sinopsis=" + sinopsis
+				+ ", trailer=" + trailer + "]";
 	}
 	public void setId(int id) {
 		this.id = id;

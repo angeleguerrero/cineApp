@@ -2,8 +2,25 @@ package com.cineapp.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+//import javax.persistence.Transient;
+
+
+@Entity
+@Table(name= "peliculas")
 public class Pelicula {
 
+	
+	@Id
+	@GeneratedValue (strategy = GenerationType.IDENTITY)//Auto incremental
+	
+	
 	private int id;
 	private String titulo;
 	private int duracion;
@@ -12,6 +29,9 @@ public class Pelicula {
 	private String imagen = "cinema.png";
 	private Date fechaEstreno;
 	private String estatus ="Activa";
+	//@Transient //Pasa por alto atributi en la persistencia
+	@OneToOne
+	@JoinColumn(name = "IdDetalle")
 	private Detalle detalle;
 
 
