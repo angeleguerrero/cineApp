@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
 
 @Entity
 @Table(name = "horarios")
@@ -26,7 +26,7 @@ public class Horario {
 	//@Transient
 	@ManyToOne
 	@JoinColumn(name = "idPelicula")
-	private Pelicula pelicula;
+	private Pelicula pelicula; 
 	
 
 	

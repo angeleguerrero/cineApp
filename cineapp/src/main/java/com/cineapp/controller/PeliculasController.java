@@ -25,11 +25,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cineapp.model.Pelicula;
 import com.cineapp.service.IPeliculaService;
+import com.cineapp.service.IDetalleService;
 import com.cineapp.util.Utileria;
 
 @Controller
 @RequestMapping("/peliculas")
 public class PeliculasController {
+	@Autowired
+	private IDetalleService serviceDetalles;
+	
 	@Autowired
 	private IPeliculaService servicePelicula;
 	
@@ -67,10 +71,12 @@ public class PeliculasController {
 			pelicula.setImagen(nombreImagen);
 			}
 		
-		System.out.println("Salvando OBJ Pelicula" + pelicula);
-		System.out.println("Elementos en la lista Antes de insercion" + servicePelicula.buscarTodas().size());
-		
+		System.out.println("Salvando OBJ Pelicula > " + pelicula);
+		System.out.println("Elementos en la lista Antes de insercion OBJ Detalles" + servicePelicula.buscarTodas().size() +"***");
+		System.out.println("Antes insertar"+pelicula.getDetalle());
+		serviceDetalles.insertar(pelicula.getDetalle());
 		servicePelicula.insertar(pelicula);
+		System.out.println("despues  insertar OBJ Detalles"+pelicula.getDetalle());
 		System.out.println("Elementos en la lista despues de la insercion" + servicePelicula.buscarTodas().size());
 		
 		atributes.addFlashAttribute("mensaje" , "Registro guardado correctamente");

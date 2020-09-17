@@ -1,14 +1,18 @@
 package com.cineapp.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 //import javax.persistence.Transient;
 
 
@@ -31,10 +35,14 @@ public class Pelicula {
 	private String estatus ="Activa";
 	//@Transient //Pasa por alto atributi en la persistencia
 	@OneToOne
-	@JoinColumn(name = "IdDetalle")
+	@JoinColumn(name = "idDetalle")
 	private Detalle detalle;
+	//atributo pelicula es el declarado en clase Horario
+	@OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER) //fetch = FetchType.EAGER Ejecuta consulta para todos los horarios de peliculas
+	private List<Horario> lhorarios;
 
 
+	
 	
 	
 	
@@ -43,14 +51,27 @@ public class Pelicula {
 	public String toString() {
 		return "Pelicula [id=" + id + ", titulo=" + titulo + ", duracion=" + duracion + ", calificacion=" + calificacion
 				+ ", genero=" + genero + ", imagen=" + imagen + ", fechaEstreno=" + fechaEstreno + ", estatus="
-				+ estatus + ", detalle=" + detalle + "]";
+				+ estatus + ", detalle=" + detalle + ", lhorarios=" + lhorarios + "]";
 	}
-	public Detalle getDetalle() {
-		return detalle;
-	}
+
+
 	public void setDetalle(Detalle detalle) {
 		this.detalle = detalle;
 	}
+
+	
+	public Detalle getDetalle() {
+		return detalle;
+	}
+	
+	
+	public List<Horario> getLhorarios() {
+		return lhorarios;
+	}
+	public void setLhorarios(List<Horario> lhorarios) {
+		this.lhorarios = lhorarios;
+	}
+	
 	
 
 	
