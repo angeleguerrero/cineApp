@@ -1,10 +1,15 @@
 package com.cineapp.service;
 
+
+
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.cineapp.model.Pelicula;
@@ -27,11 +32,16 @@ public class PeliculasServiceJPA implements IPeliculaService {
 	public List<Pelicula> buscarTodas() {
 		
 		return peliculasRepo.findAll();
+		
 	}
 
 	@Override
 	public Pelicula buscarPorId(int IdPelicula) {
-		// TODO Auto-generated method stub
+		Optional<Pelicula>optionalbuscar= peliculasRepo.findById(IdPelicula);
+		if ( optionalbuscar.isPresent()) {
+		return optionalbuscar.get();	
+			
+		}
 		return null;
 	}
 
@@ -52,5 +62,21 @@ public class PeliculasServiceJPA implements IPeliculaService {
 		
 		return generos ;
 	}
+
+	@Override
+	public void eliminar(int idPelicula) {
+		peliculasRepo.deleteById(idPelicula);
+		
+	}
+
+	@Override
+	public Page<Pelicula> buscarTodas_page(Pageable page) {
+		
+		return peliculasRepo.findAll(page);
+	}
+
+	
+
+	
 
 }

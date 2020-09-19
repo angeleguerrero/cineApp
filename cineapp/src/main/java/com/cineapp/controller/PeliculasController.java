@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,10 +48,24 @@ public class PeliculasController {
 	}
 	
 	
+	
+	
+//	INDEX PAGINADO
+	@GetMapping(value = "/indexPaginate")
+	public String mostrarIndexPaginado(Model model, Pageable page) {
+	Page<Pelicula> lista = servicePelicula.buscarTodas_page(page);
+	model.addAttribute("peliculas", lista);
+	return "form/listPeliculas";
+	}
+
+	
+	
+	
+	
  
 	@GetMapping(value = "/create")
 	public String crear(@ModelAttribute Pelicula pelicula, Model model) {
-		model.addAttribute("generos", servicePelicula.buscarGeneros());
+		//model.addAttribute("generos", servicePelicula.buscarGeneros());
 		return "form/formPeliculas";
 	}
 	
@@ -85,6 +102,37 @@ public class PeliculasController {
 		
 	}
 	
+	@GetMapping("/edit/{id}")
+	public String editar(@PathVariable("id") int idPelicula, Model model) {
+		Pelicula pelicula = servicePelicula.buscarPorId(idPelicula);
+		//model.addAttribute("generos", servicePelicula.buscarGeneros());
+		
+		
+		model.addAttribute("pelicula", pelicula);
+		return "form/formPeliculas";
+		
+	}
+	
+	
+//	Metodo para no repetir model attribute en Editar u otro metodo, aplica para todo el controlador actual
+	@ModelAttribute("generos")
+	public List<String>generos(){
+		
+		return servicePelicula.buscarGeneros();
+	}
+	
+	
+	@GetMapping(value = "/delete/{id}")
+	public String eliminar (@PathVariable("id") int idPelicula, RedirectAttributes attributes) {
+		Pelicula pelicula = servicePelicula.buscarPorId(idPelicula);
+//		Primero Elimina Pelicula
+		servicePelicula.eliminar(idPelicula);
+		//Despues Elimina Detalle
+		serviceDetalles.eliminar(pelicula.getDetalle().getId());
+		attributes.addFlashAttribute("mensaje", "La Pelicula Seleccionada fue eliminada");
+		return "redirect:/peliculas/index";
+		
+	}
 	
 	@InitBinder
 	public void initBinder (WebDataBinder binder) {

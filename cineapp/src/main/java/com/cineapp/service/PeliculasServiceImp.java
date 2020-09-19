@@ -1,10 +1,13 @@
 package com.cineapp.service;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 //import org.springframework.stereotype.Service;
@@ -120,6 +123,22 @@ public class PeliculasServiceImp implements IPeliculaService{
 		generos.add("test");
 		
 		return generos ;
+	}
+
+
+
+	@Override
+	public void eliminar(int idPelicula) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public Page<Pelicula> buscarTodas_page(Pageable page) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

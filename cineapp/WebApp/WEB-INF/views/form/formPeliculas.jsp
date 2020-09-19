@@ -46,20 +46,14 @@
 <!--  SOPORTE PARA SUBIR ARCHIVOS enctype="multipart/form-data" -->
 <%-- 	${pelicula}  --%>
       <form:form action="${urlForm}" method="post" enctype="multipart/form-data" modelAttribute="pelicula">
-      
-      
-      
+ 
         <div class="row">
-        
-        
-        
-        
-        
-        
+
           <div class="col-sm-3">
             <div class="form-group">
               <label for="titulo">Título</label>
               <form:hidden path="id"/>
+              <form:hidden path="detalle.id"/>
               <form:input type="text" class="form-control" path="titulo" id="titulo" required="required" />
             </div>  
           </div>
