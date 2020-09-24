@@ -31,6 +31,7 @@ public class Horario {
 
 	
 	public Horario() {
+		System.out.println("Constructor Horarios");
 	}
 	
 	@Override

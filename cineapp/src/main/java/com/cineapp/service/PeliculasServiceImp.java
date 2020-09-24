@@ -3,6 +3,7 @@ package com.cineapp.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -137,6 +138,30 @@ public class PeliculasServiceImp implements IPeliculaService{
 
 	@Override
 	public Page<Pelicula> buscarTodas_page(Pageable page) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<Pelicula> buscarActivas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<Pelicula> buscarPorFecha(Date fecha) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Page<Pelicula> buscarTodas(Pageable page) {
 		// TODO Auto-generated method stub
 		return null;
 	}
