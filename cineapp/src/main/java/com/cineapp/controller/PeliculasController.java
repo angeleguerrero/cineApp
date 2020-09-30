@@ -98,7 +98,7 @@ public class PeliculasController {
 		
 		atributes.addFlashAttribute("mensaje" , "Registro guardado correctamente");
 //		return "form/formPeliculas";
-		return "redirect:/peliculas/index";
+		return "redirect:/peliculas/indexPaginate";
 		
 	}
 	

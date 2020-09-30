@@ -31,7 +31,7 @@ public class Horario {
 
 	
 	public Horario() {
-		System.out.println("Constructor Horarios");
+		
 	}
 	
 	@Override
@@ -70,6 +70,7 @@ public class Horario {
 		this.precio = precio;
 	}
 	public Pelicula getPelicula() {
+		System.out.println("get pelicula");
 		return pelicula;
 	}
 	public void setPelicula(Pelicula pelicula) {

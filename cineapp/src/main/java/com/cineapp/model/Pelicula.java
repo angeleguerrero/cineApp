@@ -46,12 +46,13 @@ public class Pelicula {
 	
 	
 	
-	
+
+
 	@Override
 	public String toString() {
 		return "Pelicula [id=" + id + ", titulo=" + titulo + ", duracion=" + duracion + ", calificacion=" + calificacion
 				+ ", genero=" + genero + ", imagen=" + imagen + ", fechaEstreno=" + fechaEstreno + ", estatus="
-				+ estatus + ", detalle=" + detalle + ", lhorarios=" + lhorarios + "]";
+				+ estatus + ", detalle=" + detalle + "]";
 	}
 
 

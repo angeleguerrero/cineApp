@@ -79,6 +79,8 @@ public class PeliculasServiceJPA implements IPeliculaService {
 	public Page<Pelicula> buscarTodas_page(Pageable page) {
 		return peliculasRepo.findAll(page);
 	}
+	
+//	Buscar Peliculas Activas *************************
 
 	@Override
 	public List<Pelicula> buscarActivas() {
@@ -86,6 +88,8 @@ public class PeliculasServiceJPA implements IPeliculaService {
 		peliculas = peliculasRepo.findByEstatus_OrderByTitulo("Activa");
 		return peliculas;
 	}
+	
+//	***************************************************
 
 	@Override
 	public List<Pelicula> buscarPorFecha(Date fecha) {
@@ -104,8 +108,8 @@ public class PeliculasServiceJPA implements IPeliculaService {
 
 	@Override
 	public Page<Pelicula> buscarTodas(Pageable page) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return peliculasRepo.findAll(page);
 	}
 
 	
