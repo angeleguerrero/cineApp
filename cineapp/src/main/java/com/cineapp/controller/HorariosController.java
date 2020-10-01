@@ -104,7 +104,7 @@ public class HorariosController {
 	public String editar(@PathVariable("id") int idHorario, Model model) {		
 		Horario horario = serviceHorarios.buscarPorId(idHorario);			
 		model.addAttribute("horario", horario);
-		return "horarios/formHorario";
+		return "form/formHorario";
 	}
 	
 	/**

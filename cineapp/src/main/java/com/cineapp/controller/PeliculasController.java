@@ -130,7 +130,7 @@ public class PeliculasController {
 		//Despues Elimina Detalle
 		serviceDetalles.eliminar(pelicula.getDetalle().getId());
 		attributes.addFlashAttribute("mensaje", "La Pelicula Seleccionada fue eliminada");
-		return "redirect:/peliculas/index";
+		return "redirect:/peliculas/indexPaginate";
 		
 	}
 	
