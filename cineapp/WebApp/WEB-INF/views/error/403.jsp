@@ -23,13 +23,13 @@
 
 		<div class="panel panel-danger">
 			<div class="panel-heading">
-				<h3 class="panel-title">Error 403.</h3>
+				<h3 class="panel-title">403 - Permiso denegado</h3>
 			</div>
 			<div class="panel-body">
 				<img src="${urlPublic}/images/error.png" width="48" height="48" class="center">
-				<h4>Permiso denegado!</h4>				
+				<h4>Permiso denegado, Su usuario no cuenta con los permisos suficientes para acceder a este modulo!</h4>				
 				<br>
-				<button class="btn btn-success" onclick="goBack()">REGRESAR</button>
+				<button class="btn btn-success" onclick="goBack()">Regresar</button>
 			</div>
 		</div>
 

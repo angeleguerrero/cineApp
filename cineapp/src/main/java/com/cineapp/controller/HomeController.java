@@ -38,6 +38,16 @@ public class HomeController {
 	public String goHome( ) {
 		return "home";
 	}
+	
+	
+	
+	@RequestMapping(value = "/formLogin" ,method = RequestMethod.GET )
+	public String mostrarLogin() {
+	return "formLogin";
+	}
+
+	
+	
 
 	@RequestMapping(value = "/buscar", method =RequestMethod.POST)
 	public String buscarDate(@RequestParam("fecha") String fecha, Model model) {
