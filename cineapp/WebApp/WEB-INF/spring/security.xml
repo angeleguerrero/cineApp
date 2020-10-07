@@ -18,8 +18,10 @@
 
 
 
+
+
 <!-- Custom login form -->
-<form-login login-page="/formLogin" /> 
+ <form-login login-page="/formLogin" default-target-url="/admin/index" />  
 
 </http>
 
@@ -29,8 +31,8 @@
 
       <authentication-provider>
 		<user-service>
-		  <user name="angel@siomsoft.com" password="{noop}angel123" authorities="EDITOR" />		  
-		  <user name="admin@siomsoft.com" password="{noop}admin123" authorities="GERENTE" />  
+		  <user name="angel" password="{noop}angel123" authorities="EDITOR" />		  
+		  <user name="admin" password="{noop}admin123" authorities="GERENTE" />  
 		</user-service>
       </authentication-provider>
 

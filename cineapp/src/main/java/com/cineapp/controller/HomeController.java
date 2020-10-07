@@ -45,6 +45,12 @@ public class HomeController {
 	public String mostrarLogin() {
 	return "formLogin";
 	}
+	
+	@RequestMapping(value = "/acerca", method = RequestMethod.GET)
+	public String mostraracerca() {
+		
+		return "acerca";
+	}
 
 	
 	

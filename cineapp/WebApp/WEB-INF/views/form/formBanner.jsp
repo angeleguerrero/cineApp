@@ -23,7 +23,7 @@
 
          <h3 class="blog-title"><span class="label label-success">Datos de la imagen</span></h3>
 
-         <form action="${urlForm}" method="post" enctype="multipart/form-data">
+         <form action="${urlForm}" method="post" enctype="multipart/form-data" class="was-validated">
             <div class="row">         
                <div class="col-sm-6">
                   <div class="form-group">

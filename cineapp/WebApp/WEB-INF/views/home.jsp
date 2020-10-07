@@ -15,9 +15,8 @@
 
 <spring:url value="/resources" var="urlPublic" />
 <spring:url value="/" var="urlRoot"></spring:url>
- 
 <link rel="stylesheet" href="${urlPublic}/bootstrap/css/bootstrap.min.css">
-    <link href="${urlPublic}/bootstrap/css/theme.css" rel="stylesheet">
+ <link href="${urlPublic}/bootstrap/css/theme.css" rel="stylesheet">
 
   </head>
 
