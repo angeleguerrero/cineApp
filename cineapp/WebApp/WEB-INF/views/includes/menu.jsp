@@ -24,6 +24,7 @@
           <ul class="nav navbar-nav">
             <li><a href="${urlRoot}acerca">Acerca</a></li>
             <li><a href="${urlRoot}formLogin">Login</a></li>  
+            <li><a href="${urlRoot}buscar"></a></li> 
                      
           </ul>
         </div><!--/.nav-collapse -->
@@ -46,7 +47,7 @@
           
 			<li><a href="${urlRoot}peliculas/indexPaginate?page=0">Peliculas</a></li>
 			<li><a href="${urlRoot}horarios/indexPaginate">Horarios</a></li>
-			<li><a href="#">Noticias</a></li>
+			<li><a href="${urlRoot}noticias/listar">Noticias</a></li>
          
 			<li><a href="${urlRoot}admin/logout">Salir</a></li>
                      
@@ -72,7 +73,7 @@
            <li><a href="${urlRoot}banners/index">Banners</a></li>   
 			<li><a href="${urlRoot}peliculas/indexPaginate?page=0">Peliculas</a></li>
 			<li><a href="${urlRoot}horarios/indexPaginate">Horarios</a></li>
-			<li><a href="${urlRoot}">Noticias</a></li>
+			<li><a href="${urlRoot}noticias/listar">Noticias</a></li>
       
 			<li><a href="${urlRoot}admin/logout">Salir</a></li>
 <%-- 			<li>Bienvenido(a) <sec:authentication property="principal.username"/> </li> --%>

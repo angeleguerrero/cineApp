@@ -101,8 +101,10 @@
 
       <div class="row page-header">          
         <div class="col-lg-12">         
-          <h2 class="text text-center"><span class="label label-success">EN CARTELERA</span></h2>          
+          <h2 class="text text-center"><span class="label label-success">EN CARTELERA</span></h2>       
+<!--           cuando esta activado Spring Security todos los formularios deben de incluir el Token para prevenir ataques de tipo CSRF (Cross-site request forgery).    -->
           <form class="form-inline" action="${urlRoot}buscar " method="post">
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="form-group">
               <label for="fecha">Fecha: </label>
               <select id="fecha" name="fecha" class="form-control">

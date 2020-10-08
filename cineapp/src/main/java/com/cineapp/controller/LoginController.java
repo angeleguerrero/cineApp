@@ -2,7 +2,7 @@ package com.cineapp.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.config.core.GrantedAuthorityDefaults;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;

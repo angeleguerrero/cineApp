@@ -1,41 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <b:beans xmlns="http://www.springframework.org/schema/security"
-   xmlns:b="http://www.springframework.org/schema/beans" 
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
      http://www.springframework.org/schema/beans/spring-beans.xsd
      http://www.springframework.org/schema/security 
      http://www.springframework.org/schema/security/spring-security.xsd">
 
-<!--  Roles y accesos  -->
-<http auto-config="true">
-<!--Declaramos todos los recursos que estaran protegidos -->
-<intercept-url pattern="/peliculas/*" access="hasAnyAuthority('EDITOR','GERENTE' )" />
-<intercept-url pattern="/horarios/*" access="hasAnyAuthority('EDITOR', 'GERENTE')" />
-<intercept-url pattern="/noticias/*" access="hasAnyAuthority('EDITOR', 'GERENTE')" />
-<intercept-url pattern="/banners/*" access="hasAnyAuthority('GERENTE')" />
+	<!-- Roles y accesos -->
+	<http auto-config="true">
+		<!--Declaramos todos los recursos que estaran protegidos -->
+		<intercept-url pattern="/peliculas/*"
+			access="hasAnyAuthority('EDITOR','GERENTE' )" />
+		<intercept-url pattern="/horarios/*"
+			access="hasAnyAuthority('EDITOR', 'GERENTE')" />
+		<intercept-url pattern="/noticias/*"
+			access="hasAnyAuthority('EDITOR', 'GERENTE')" />
+		<intercept-url pattern="/banners/*"
+			access="hasAnyAuthority('GERENTE')" />
 
 
 
 
+		<!-- Custom login form -->
+		<form-login login-page="/formLogin"
+			default-target-url="/admin/index" />
 
-<!-- Custom login form -->
- <form-login login-page="/formLogin" default-target-url="/admin/index" />  
+	</http>
 
-</http>
+	<!-- Usuarios y roles asignados -->
 
-<!-- Usuarios y roles asignados -->
+	<authentication-manager>
 
-   <authentication-manager>
+		<!-- Usuarios esatticos en memoria Config -->
 
-      <authentication-provider>
-		<user-service>
-		  <user name="angel" password="{noop}angel123" authorities="EDITOR" />		  
-		  <user name="admin" password="{noop}admin123" authorities="GERENTE" />  
-		</user-service>
-      </authentication-provider>
+		<!-- <authentication-provider> -->
+		<!-- <user-service> -->
+		<!-- <user name="angel" password="{noop}angel123" authorities="EDITOR" 
+			/> -->
+		<!-- <user name="admin" password="{noop}admin123" authorities="GERENTE" 
+			/> -->
+		<!-- </user-service> -->
+		<!-- </authentication-provider> -->
+		<!-- Autenticacion desde una base de datos -->
 
-   </authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service data-source-ref="dataSource" />
+		</authentication-provider>
+
+	</authentication-manager>
 
 </b:beans>
