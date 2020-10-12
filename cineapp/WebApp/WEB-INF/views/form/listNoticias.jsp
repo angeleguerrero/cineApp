@@ -48,18 +48,18 @@
 					<tr>
 						<td>${noticia.id}</td>
 						<td>${noticia.titulo}</td>
-						<td><fmt:formatDate pattern="dd-MM-yyyy" value="${noticia.fecha}" /></td>
-						<c:choose>
-							<c:when test="${noticia.estatus eq 'Activa'}">
-								<td><span class="label label-success">${noticia.estatus}</span></td>
-							</c:when>
-							<c:otherwise>
-								<td><span class="label label-danger">${noticia.estatus}</span></td>
-							</c:otherwise>
-						</c:choose>								
+						<td><fmt:formatDate pattern="dd-MM-yyyy" value="${noticia.fecha}" /></td> 
+ 						<c:choose> 
+ 							<c:when test="${noticia.estatus eq 'Activa'}"> 
+								<td><span class="label label-success">${noticia.estatus}</span></td> 
+							</c:when> 
+ 							<c:otherwise> 
+ 								<td><span class="label label-danger">${noticia.estatus}</span></td> 
+							</c:otherwise> 
+ 						</c:choose>								
 						<td>
-						   <a href="${urlEdit}/${noticia.id}" class="btn btn-success btn-sm" role="button" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
-							<a href="${urlDelete}/${noticia.id}" onclick='return confirm("¿Estas seguro?")' class="btn btn-danger btn-sm" role="button" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
+ 						   <a href="${urlEdit}/${noticia.id}" class="btn btn-success btn-sm" role="button" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a> 
+ 							<a href="${urlDelete}/${noticia.id}" onclick='return confirm("¿Estas seguro?")' class="btn btn-danger btn-sm" role="button" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a> 
 					   </td>
 					</tr>
 				</c:forEach>

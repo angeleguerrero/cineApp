@@ -75,12 +75,6 @@ public class Noticia {
 		this.estatus = estatus;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }

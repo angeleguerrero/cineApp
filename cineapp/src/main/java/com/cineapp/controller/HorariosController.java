@@ -49,6 +49,7 @@ public class HorariosController {
 	public String mostrarIndex(Model model) {
 		List<Horario> listaHorarios = serviceHorarios.buscarTodos();
 		model.addAttribute("horarios", listaHorarios);
+		
 		return "horarios/listHorarios";
 	}
 	
@@ -61,6 +62,7 @@ public class HorariosController {
 	public String mostrarIndexPaginado(Model model, Pageable page) {
 		Page<Horario> listaHorarios = serviceHorarios.buscarTodosPage(page);
 		model.addAttribute("horarios", listaHorarios);
+		System.out.println(listaHorarios);
 		return "form/listHorarios";
 	}
 	

@@ -32,6 +32,8 @@
 
 <spring:url value="/noticias/save" var="urlForm"> </spring:url>
       <form action="${urlForm}" method="post">
+    
+      
         <div class="row">         
           <div class="col-sm-6">
             <div class="form-group">

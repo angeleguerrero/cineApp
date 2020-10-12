@@ -30,7 +30,9 @@ public class NoticiasController {
 	@GetMapping(value = "/listar")
 	public String mostrarIndex(Model model) {
 		List<Noticia> listaNoticias = serviceNoticias.buscarTodos();
+		
 		model.addAttribute("noticias", listaNoticias);
+		System.out.println(listaNoticias);
 		return "form/listNoticias";
 	}
 	
