@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cineapp.model.Usuario;
+import com.cineapp.model.Usuarioperfil;
+import com.cineapp.service.IUsuarioPerfilService;
 import com.cineapp.service.IUsuarioService;
 
 @Controller
@@ -20,9 +22,12 @@ import com.cineapp.service.IUsuarioService;
 public class UsuariosController {
 	@Autowired
 	private IUsuarioService usuService;
+	@Autowired
+	private IUsuarioPerfilService perService;
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
+	
 	@GetMapping("/demo-bcrypt")
 	public String pruebaBCrypt() {
 	String password = "Acceso123";
@@ -49,12 +54,23 @@ public class UsuariosController {
 	
 	
 	@PostMapping("/save")
-	public String guardar(@ModelAttribute Usuario usuario) {
-		System.out.println("Usuario " + usuario);
-
-		return "redirect:/usuarios/listar";
-				
+	public String guardar(@ModelAttribute Usuario usuario, @RequestParam ("perfil") String perfil) {
+		System.out.println("Usuario: "+ usuario);
+		System.out.println("Perfil: " + perfil);
 		
+		String tmpPass = usuario.getPassword();
+		String encriptado = encoder.encode(tmpPass);
+		usuario.setPassword(encriptado);
+		usuario.setEnabled(1);
+		usuService.save(usuario);
+		
+		Usuarioperfil perfilTmp = new Usuarioperfil();
+		perfilTmp.setPerfil(perfil);
+		perfilTmp.setUsername(usuario.getUsername());
+		System.out.println("Usuario Perfil: " + perfilTmp);
+		perService.save(perfilTmp);
+		return "redirect:/usuarios/listar";
+
 		
 	}
 	

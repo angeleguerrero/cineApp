@@ -74,6 +74,7 @@
 			<li><a href="${urlRoot}peliculas/indexPaginate?page=0">Peliculas</a></li>
 			<li><a href="${urlRoot}horarios/indexPaginate">Horarios</a></li>
 			<li><a href="${urlRoot}noticias/listar">Noticias</a></li>
+			<li><a href="${urlRoot}usuarios/listar">Usuarios</a></li>
       
 			<li><a href="${urlRoot}admin/logout">Salir</a></li>
 <%-- 			<li>Bienvenido(a) <sec:authentication property="principal.username"/> </li> --%>
