@@ -50,7 +50,8 @@
                   </div>
                </div>
             </div>
-
+            
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
             <button type="submit" class="btn btn-danger" >Guardar</button>
          </form> 
 
