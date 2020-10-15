@@ -44,13 +44,13 @@
 							
 			
 			    
-				<h3 class="form-signin-heading">CineSite | Administracion</h3>        
+				<h3 class="form-signin-heading">CineSite | Login</h3>        
 				<label for="j_username" class="sr-only">Usuario</label>
-				<input type='text' id="j_username" name='username' class="form-control" placeholder="Usuario" required autofocus>
+				<input type='text' id="j_username" name='username' class="form-control" placeholder="Username" required autofocus>
 				<label for="j_password" class="sr-only">Contraseña</label>
 				<input type='password' id="j_password" name='password' class="form-control" placeholder="Password" required>
 				<input type="hidden"name="${_csrf.parameterName}" value="${_csrf.token}"/>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 			</form>
 
 		</div> <!-- /container -->

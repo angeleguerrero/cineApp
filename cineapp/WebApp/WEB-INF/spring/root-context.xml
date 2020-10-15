@@ -20,7 +20,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/cineapp?allowPublicKeyRetrieval=true&amp;serverTimezone=America/Santo_Domingo" />
 		<property name="username" value="root" />
-		<property name="password" value="Acceso2020*" />
+		<property name="password" value="Acceso2020**" />
 	</bean>
 	
 	
